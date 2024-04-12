@@ -1,4 +1,3 @@
-
 <div class="contenerdor">
     <app-header />   
     <mat-sidenav-container>
@@ -6,7 +5,9 @@
             <app-sidebar />
         </mat-sidenav>
         <mat-sidenav-content>
-            <router-outlet />
+            <div class="padding">
+                <router-outlet />
+            </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
     <app-footer />
