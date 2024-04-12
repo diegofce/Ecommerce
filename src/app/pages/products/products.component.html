@@ -1,12 +1,9 @@
 <h1>Product Catalog</h1>
 <div class="row">
-
-@for (Product of products; track Product.id) {
-
-    <div class="col-xl-3 col-md-4 col-sm-6 co-12"></div>
+    @for (Product of products; track Product.id) {
+        <div class="col-xl-3 col-md-4 col-sm-6 co-12">
 
     <mat-card class="example-card">
-       
           <mat-card-title>{{ Product.title }}</mat-card-title>
           <mat-card-subtitle>Dog Breed</mat-card-subtitle>
         <img mat-card-image [src]="Product.image" [alt]="Product.title">
@@ -19,8 +16,11 @@
           <button mat-button>View</button>
           <button mat-button>Cart</button>
         </mat-card-actions>
-    </mat-card>
-}
+        </mat-card>
+    </div>
 
+}
 </div>
+
+
 
