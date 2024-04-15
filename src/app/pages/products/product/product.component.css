@@ -1,0 +1,26 @@
+img {
+    height: 200px;
+    object-fit: scale-down;
+}
+
+mat-card {
+    margin-bottom: 10px;
+}
+
+mat-chip {
+    margin-left: 10px;
+}
+
+
+.title {
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: large;
+    font-weight: bold;
+    text-align: end;
+}

@@ -15,4 +15,5 @@ mat-sidenav {
 
 .padding {
     padding: 10px;
+    overflow-x: hidden;
 }

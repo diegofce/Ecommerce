@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+
+    <div class="title">{{ product.title | slice:0:20 }}</div>
+    <div>
+      <mat-chip> {{ product.category }} </mat-chip>
+    </div>
+    <img mat-card-image [src]="product.image" [alt]="product.title">
+    <mat-card-content>
+      <p class="price">
+        {{ product.price | currency }}
+      </p>
+      <p>
+        {{ product.description | slice:0:70 }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button><mat-icon>visibility</mat-icon></button>
+      <button mat-icon-button><mat-icon>add_shopping_cart</mat-icon></button>
+    </mat-card-actions>
+</mat-card>
