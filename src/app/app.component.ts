@@ -4,7 +4,6 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ProductsComponent } from './pages/products/products.component';
 
 
 @Component({
