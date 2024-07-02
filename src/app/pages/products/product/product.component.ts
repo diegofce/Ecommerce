@@ -5,6 +5,7 @@ import { Product } from '../../../api/model/product';
 import { MatIconModule } from '@angular/material/icon';
 import { CurrencyPipe, SlicePipe } from '@angular/common';
 import { MatChipsModule } from "@angular/material/chips";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,13 @@ import { MatChipsModule } from "@angular/material/chips";
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input({required: true}) product!: Product;
+  @Input({ required: true }) product!: Product;
+
+  constructor(private router: Router){}
+
+  viewItem() {
+    this.router.navigate(['prducts', this.product.id]);
+
+  }
 
 }

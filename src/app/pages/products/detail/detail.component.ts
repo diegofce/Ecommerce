@@ -1,16 +1,40 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit,} from '@angular/core';
 import { ProductsService } from '../../../api/services/products.service';
+import { Product } from '../../../api/model/product';
+import { MatChipsModule } from '@angular/material/chips';
+import { CurrencyPipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [],
+  imports: [MatChipsModule, CurrencyPipe, MatIconModule, MatButtonModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })
-export class DetailComponent {
+export class DetailComponent implements OnInit {
+
   @Input() id: number = 0;
+
+  product?: Product;
+
+  constructor(private productService: ProductsService) {
+  }
+
+  ngOnInit(): void {
+    this.productService.getById(this.id).subscribe({
+      next: data => {
+        this.product = data;
+        console.log(data);
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
+    
+  }
 
 
 }

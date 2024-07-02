@@ -15,6 +15,10 @@ export class ProductsService {
     return this.http.get<Product[]>(`${this.BASE_URL}`);
   }
 
+getById(id: number) {
+  return this.http.get<Product>(`${this.BASE_URL}/${id}`);
+}
+
   getAllCategories() {
     return this.http.get<string[]>(`${this.BASE_URL}/categories`);
   }
