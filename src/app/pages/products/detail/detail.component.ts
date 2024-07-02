@@ -5,12 +5,13 @@ import { MatChipsModule } from '@angular/material/chips';
 import { CurrencyPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { CartService } from '../../../api/services/cart.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [MatChipsModule, CurrencyPipe, MatIconModule, MatButtonModule],
+  imports: [MatChipsModule, CurrencyPipe, MatIconModule, MatProgressSpinnerModule, MatButtonModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })
@@ -20,7 +21,7 @@ export class DetailComponent implements OnInit {
 
   product?: Product;
 
-  constructor(private productService: ProductsService) {
+  constructor(private productService: ProductsService, private cartService: CartService) {
   }
 
   ngOnInit(): void {

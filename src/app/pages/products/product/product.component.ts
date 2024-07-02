@@ -23,10 +23,12 @@ import { Router } from '@angular/router';
 export class ProductComponent {
   @Input({ required: true }) product!: Product;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, 
+    private cartService: CartService
+  ){}
 
   viewItem() {
-    this.router.navigate(['prducts', this.product.id]);
+    this.router.navigate(['products', this.product.id]);
   }
 
 }
