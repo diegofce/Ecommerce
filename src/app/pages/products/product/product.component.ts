@@ -27,7 +27,6 @@ export class ProductComponent {
 
   viewItem() {
     this.router.navigate(['prducts', this.product.id]);
-
   }
 
 }
