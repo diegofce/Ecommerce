@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import { CartItem } from '../../api/model/cart-item';
 import { CartService } from '../../api/services/cart.service';
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [MatTableModule, CurrencyPipe, DecimalPipe],
-  templateUrl: './cart.component.html',
+  imports: [MatButtonModule, MatIconModule, MatTableModule, CurrencyPipe, DecimalPipe],
+  templateUrl: './cart.component.html', 
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
   items: CartItem[] = [];
-  displayedColumns = ["image", "title", "price", "quentity", "total"];
+  displayedColumns = ["image", "title", "price", "quentity", "total", "actions"];
   constructor(private cartService: CartService){
     this.cartService.getItems().subscribe(data => {
       this.items = data;
     });
+  }
+
+  deleteItem(id: number) {
+    this.cartService.deleteItem(id);
+    this.items = this.items.filter(i => i.id !== id);
   }
 }
